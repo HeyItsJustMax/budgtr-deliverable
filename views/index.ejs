@@ -2,11 +2,37 @@
 <html lang="en">
     <!-- INCLUDE HEAD -->
     <%- include("./partials/head.ejs") %>
+
 <body>
+    <div class="container">
     <!-- INCLUDE HEADER -->
     <%- include("./partials/header.ejs") %>
-    <h1>Budgtr Index Page</h1>
 
+    <h1>Budgtr</h1>
+
+        <!-- I need to iterate over the array (each index is a <tr>) -->
+        <!-- each piece of individual data within the tr is a <td> -->
+        <table>
+            <% for(let i = 0; i < wholeBudget.length; i++) { %>
+
+                
+                <tr>
+
+                    
+                    <td><%= wholeBudget[i].date %></td>
+                    <td>
+                        <a href="/budget/<%= i %>">
+                            <%= wholeBudget[i].name %>
+                        </a>
+                    </td>
+                    <td><%= wholeBudget[i].from %></td>
+                    <td><%= wholeBudget[i].amount %></td>
+                    <td><%= wholeBudget[i].tags %></td>
+
+                </tr>
+            <% } %>
+        </table>
+    </div>
     <!-- INCLUDE FOOTER -->
     <%- include("./partials/footer.ejs") %>
 </body>

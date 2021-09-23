@@ -21,7 +21,7 @@ app.use(methodOverride("_method"))
 
 // INDEX - get /budgets/
 app.get("/budgets/", (req, res) => {
-    res.render("index.ejs", {})
+    res.render("index.ejs", { wholeBudget: budget})
 })
 
 // NEW - get /budgets/new
